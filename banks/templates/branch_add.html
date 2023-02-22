@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+         <p>
+            <div>
+                {{ form.name.errors }}
+            </div>
+            {{ form.name.label_tag }}
+            {% if request.POST.name %}
+                <input id="id_name" type="text" name="name" value="{{ request.POST.name }}"/>
+            {% else %}
+                {{ form.name }}
+            {% endif %}
+        </p>
+        <p>
+            <div>
+                {{ form.transit_num.errors }}
+            </div>
+            {{ form.transit_num.label_tag }}
+            {% if request.POST.transit_num %}
+                <input id="id_transit_num" type="text" name="transit_num" value="{{ request.POST.transit_num }}"/>
+            {% else %}
+                {{ form.transit_num }}
+            {% endif %}
+        </p>
+        <p>
+            <div>
+                {{ form.address.errors }}
+            </div>
+            {{ form.address.label_tag }}
+            {% if request.POST.address %}
+                <input id="id_address" type="text" name="address" value="{{ request.POST.address }}"/>
+            {% else %}
+                {{ form.address }}
+            {% endif %}
+        </p>
+        <p>
+            <div>
+                {{ form.email.errors }}
+            </div>
+            {{ form.email.label_tag }}
+            {% if request.POST.email %}
+                <input id="id_email" type="email" name="email" value="{{ request.POST.email }}"/>
+            {% else %}
+                {{ form.email }}
+            {% endif %}
+        </p>
+        <p>
+            {{ form.capacity.label_tag }}
+            {{ form.capacity }}
+        </p>
+        <p>
+            <button type="submit">Add Bank!</button>
+        </p>
+    </form>
+</body>
+</html>

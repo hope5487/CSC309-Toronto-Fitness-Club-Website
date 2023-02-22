@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank list</title>
+</head>
+<body>
+    <h1>List of banks</h1>
+    <ul>
+        {% for bank in banks %}
+            <li>{{ bank.id }}. {{ bank.name }}</li>
+            <form action="{% url 'bank_detail' bank_id=bank.id %}">
+                <input type="submit" value="Detail of {{ bank.name }}" />
+            </form>
+        {% endfor %}
+    </ul>
+</body>
+</html>
